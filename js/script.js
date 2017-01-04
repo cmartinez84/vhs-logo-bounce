@@ -1,5 +1,5 @@
 
-
+var allImages = ["images/vhs.png", "images/vhsblue.png", "images/vhsgreen.png", "images/vhsyellow.png", "images/vhsred.png" ]
 function myArea(hi){
   this.hi = hi;
   this.canvas =  document.createElement("canvas");
@@ -12,11 +12,11 @@ function myArea(hi){
 
 var demoArea = new myArea();
 
-function component(width, height, image, x, y){
-  // debugger;
+function component(width, height, imageIndex, x, y){
   var _this = this;
+  this.imageIndex = imageIndex;
   this.image  = new Image();
-  this.image.src = image;
+  this.image.src = allImages[imageIndex];
   this.width = width;
   this.height = height;
   this.x = x;
@@ -32,21 +32,31 @@ function component(width, height, image, x, y){
           this.x, this.y
           );
   }
+
   this.checkHitWall = function(){
     if(this.x > (demoArea.canvas.width - this.width) || this.x <0){
       this.speedX = -(this.speedX);
+      if(this.imageIndex === 4){
+        this.imageIndex = 0
+      }
+      else{
+        this.imageIndex +=1;
+      }
+      this.image.src = allImages[this.imageIndex];
     }
     if(this.y > (demoArea.canvas.height) - this.height || this.y <0){
       this.speedY = -(this.speedY);
-    }
-
-    else{
-      console.log("no");
+      if(this.imageIndex === 4){
+        this.imageIndex = 0
+      }
+      else{
+        this.imageIndex +=1;
+      }
+      this.image.src = allImages[this.imageIndex];
     }
   }
-
 }
-var vhsLogo = new component (353, 185, "images/vhsred.png", 200, 200);
+var vhsLogo = new component (353, 185, 0, 200, 200);
 
 function updateArea() {
   vhsLogo.checkHitWall();
