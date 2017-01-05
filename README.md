@@ -13,7 +13,8 @@ _This is a take on the famous DVD bouncing logo. a VHS logo floats around, bounc
 https://cmartinez84.github.io/vhs-logo-bounce
 
 ## Known Bugs
-no knonw bugs
+ _Currently, the image/color transition on ever bounce starts off shaky. Perhaps because of the way the images load. After a full run of all four images, all images load smoothly.
+ 
 ## Support and contact details
 
 Please contact Chris Martinez for any feedback, at cardamomclouds@yahoo.com
