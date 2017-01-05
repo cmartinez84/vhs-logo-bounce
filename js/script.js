@@ -3,8 +3,8 @@ var allImages = ["images/vhs.png", "images/vhsblue.png", "images/vhsgreen.png", 
 function myArea(hi){
   this.hi = hi;
   this.canvas =  document.createElement("canvas");
-  this.canvas.width = 800;
-  this.canvas.height = 800;
+  this.canvas.width = 600;
+  this.canvas.height = 600;
   this.context = this.canvas.getContext('2d');
   document.body.insertBefore(this.canvas, document.body.childNodes[0]);
   this.interval = setInterval(updateArea, 10);
@@ -59,6 +59,7 @@ function component(width, height, imageIndex, x, y){
 var vhsLogo = new component (353, 185, 0, 200, 200);
 
 function updateArea() {
+  demoArea.context.clearRect(0, 0, demoArea.canvas.width, demoArea.canvas.height);
   vhsLogo.checkHitWall();
   vhsLogo.update()
 }
